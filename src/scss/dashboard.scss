@@ -1,0 +1,208 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.dashboard {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  width: 100%;
+  min-width: 900px;
+  padding: 0 16px 20px;
+  @media screen and (min-width: 1400px) {
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+
+  &__graph {
+
+    & .table {
+      min-width: unset;
+      border-radius: 8px;
+
+      &.table-graph {
+        & .table__topic {
+          grid-template-columns: minmax(100px, auto) minmax(50px, max-content);
+
+          &-col {
+            &.col-name {
+              padding: 10px 20px;
+              &:before {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      &__graph {
+        background-color: $gray-blue-light;
+        padding: 10px;
+        /*height: 25vw;*/
+        min-height: 240px;
+        /*@media screen and (min-width: 1400px) {
+          height: 17vw;
+        }*/
+
+        & canvas {
+          width: 100%;
+          height: 100%;
+        }
+
+        & #graph-4 {
+          height: 100%;
+          transition: height 0.3s;
+
+          & .anychart-credits {
+            display: none;
+          }
+        }
+      }
+
+      &.table-view-max {
+        & .table__graph {
+          height: 26vw;
+          transition: height 0.3s;
+          @media screen and (min-width: 1400px) {
+            height: 20vw;
+          }
+        }
+      }
+
+      &.table-view-mid {
+        & .table__graph {
+          height: 23vw;
+          transition: height 0.3s;
+          @media screen and (min-width: 1400px) {
+            height: 17vw;
+          }
+        }
+      }
+
+      &.table-view-min {
+        & .table__graph {
+          height: 21vw;
+          transition: height 0.3s;
+          @media screen and (min-width: 1400px) {
+            height: 14vw;
+          }
+        }
+      }
+    }
+  }
+
+  &__table {
+    max-width: 100%;
+    position: relative;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    @media screen and (min-width: 1400px) {
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    & .table {
+      min-width: unset;
+      max-width: 100%;
+      border-radius: 8px;
+
+      &.table-view-max {
+        & .table__item-box {
+          & .table__item-col {
+            & .img-graph {
+              max-height: 36px;
+            }
+          }
+        }
+      }
+
+      &.table-view-mid {
+        & .table__item-box {
+          & .table__item-col {
+            & .img-graph {
+              max-height: 26px;
+            }
+          }
+        }
+      }
+
+      &.table-view-min {
+        & .table__item-box {
+          & .table__item-col {
+            & .img-graph {
+              max-height: 18px;
+            }
+          }
+        }
+      }
+
+      &.table-dashboard {
+        & .table__topic {
+          grid-template-columns: minmax(200px, auto) minmax(100px, auto) minmax(90px, auto) minmax(90px, auto) minmax(50px, max-content);
+
+          &-col {
+            &.col-name {
+              padding: 10px 20px;
+              &:before {
+                display: none;
+              }
+            }
+          }
+        }
+
+        & .table__item-box {
+          grid-template-columns: minmax(200px, auto) minmax(100px, auto) minmax(90px, auto) minmax(90px, auto) minmax(50px, max-content);
+
+          & .table__item-col {
+            &.col-name {
+              text-transform: uppercase;
+              padding: 10px 20px;
+              &:before {
+                display: none;
+              }
+            }
+
+            &.col-action {
+              & .icon-delete {
+                margin: 0;
+              }
+            }
+
+            & .img-graph {
+              width: 100%;
+              max-width: 80px;
+              height: 80%;
+              transition: height 0.3s;
+            }
+
+            & .icon-level-red {
+              fill: $red;
+              transform: scale(0.8);
+              margin-right: 5px;
+            }
+
+            & .icon-level-green {
+              fill: $green-2;
+              transform: scale(0.8);
+              margin-right: 5px;
+            }
+
+            & .icon-level-gray {
+              fill: $gray-blue-dark;
+              transform: scale(0.8);
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    & .table-bottom {
+      background-color: $gray-blue-middle;
+    }
+  }
+}

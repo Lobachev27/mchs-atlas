@@ -1,0 +1,16 @@
+<div class="select select-simple @@context.disabled">
+  <div class="select-main"><span>@@context.selected</span></div>
+  <div class="select-copy"></div>
+  <div class="select-wrap">
+    <ul class="select-list">
+      @@for (var i = 0; i < context.arr.length; i++) {
+      <li class="select-item">
+        <span>`+context.arr[i]+`</span>
+      </li>
+      }
+    </ul>
+    <svg class="select-close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10px">
+      <path fill-rule="evenodd"  opacity="0.502" d="M10.010,9.280 L9.280,10.010 L5.000,5.730 L0.720,10.010 L-0.010,9.280 L4.270,5.000 L-0.010,0.720 L0.720,-0.010 L5.000,4.270 L9.280,-0.010 L10.010,0.720 L5.730,5.000 L10.010,9.280 Z"/>
+    </svg>
+  </div>
+</div>

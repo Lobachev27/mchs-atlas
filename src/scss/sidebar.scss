@@ -1,0 +1,197 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 55px;
+  min-height: 100vh;
+  height: 100%;
+  background: linear-gradient(to bottom, $blue-dark-1 0, $blue-dark-2 100%);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  transition: width 0.5s;
+  z-index: 100;
+  scrollbar-width: none;
+
+  &.active {
+    width: 285px;
+    transition: width 0.5s;
+
+    & .sidebar__nav-box {
+      & div.sidebar__nav-link {
+        &:after {
+          transform: translateX(0);
+          transition: transform 0.5s;
+        }
+      }
+
+      &.active {
+        & div.sidebar__nav-link {
+          &:after {
+            transform: rotate(-180deg);
+            transition: transform 0.5s;
+          }
+        }
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px $blue-dark-2;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $icon-blue;
+    border-radius: 4px;
+    outline: none;
+    background-clip: border-box;
+    cursor: pointer;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &-box{
+      position: relative;
+      display: flex;
+      padding: 16px 14px;
+    }
+
+    & img {
+      min-width: 28px;
+      width: 28px;
+      height: 36px;
+      margin-right: 14px;
+    }
+
+    & span {
+      font-size: 18px;
+      font-weight: 600;
+      color: $white;
+      white-space: nowrap;
+    }
+  }
+
+  &__nav {
+    &-box{
+      border-bottom: 1px solid $blue-dark-3;
+      transition: background-color 0.5s;
+
+      &:first-child {
+        border-top: 1px solid $blue-dark-3;
+      }
+
+      & div.sidebar__nav-link {
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 45%;
+          right: 20px;
+          transform: translate(40px, -50%);
+          width: 8px;
+          height: 8px;
+          background: url("../img/icon-arrow.svg") no-repeat;
+          background-position: center;
+          background-size: contain;
+          transition: transform 0.5s;
+        }
+      }
+
+
+      &.selected {
+        & .sidebar__nav-link {
+          & svg {
+            fill: $green;
+          }
+
+          &.selected {
+            color: $green;
+          }
+        }
+      }
+
+      &.active {
+        background-color: $blue-dark-3;
+        transition: background-color 0.5s;
+
+        & .sidebar__nav-list {
+          padding: 0 0 17px 35px;
+          max-height: 200px;
+          opacity: 1;
+          overflow: visible;
+          transition: max-height 0.5s, opacity 0.5s, padding 0.5s;
+
+          & .sidebar__nav-link {
+            padding: 7px 20px;
+            max-height: 30px;
+            opacity: 1;
+            overflow: visible;
+            transition: color 0.5s, max-height 0.5s, opacity 0.5s, padding 0.5s;
+          }
+        }
+      }
+    }
+
+    &-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: $text-sidebar;
+      padding: 17px 20px;
+      transition: color 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        color: $white;
+        transition: color 0.3s;
+      }
+
+      & svg {
+        width: 16px;
+        min-width: 16px;
+        height: 16px;
+        fill: $icon-blue;
+        margin-right: 19px;
+        transition: fill 0.3s;
+      }
+
+      & span {
+        font-size: 16px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+    }
+
+    &-list {
+      padding: 0 0 0 35px;
+      overflow: hidden;
+      transition: max-height 0.5s, opacity 0.5s, padding 0.5s;
+      max-height: 0;
+
+      & .sidebar__nav-link {
+        padding: 0 20px;
+        overflow: hidden;
+        transition: color 0.5s, max-height 0.5s, opacity 0.5s, padding 0.5s;
+        max-height: 0;
+
+        & span {
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

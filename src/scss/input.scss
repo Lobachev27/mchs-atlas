@@ -1,0 +1,31 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.input {
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  height: 30px;
+  width: 100%;
+  border-radius: 4px;
+  outline: none;
+  color: $blue-dark-2;
+  border: 1px solid $border-dark;
+  background-color: $white;
+  padding: 0 10px;
+  transition: color 0.3s;
+
+  &::placeholder{
+    color: $gray;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  &__box {
+    position: relative;
+    width: 100%;
+    line-height: 1;
+  }
+}

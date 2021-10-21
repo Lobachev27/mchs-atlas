@@ -1,0 +1,82 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.header {
+  position: fixed;
+  width: calc(100% - 55px);
+  overflow: hidden;
+  margin-left: 55px;
+  transition: margin 0.5s;
+  overflow-x: auto;
+  top: 0;
+  left: 0;
+  background-color: $white;
+  z-index: 100;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 4px #dde8f0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #8697af;
+    border-radius: 4px;
+    outline: none;
+    background-clip: border-box;
+    cursor: pointer;
+  }
+
+  & .row {
+    align-items: center;
+    height: 47px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__message {
+    position: relative;
+    margin-left: 30px;
+
+    & svg {
+      fill: $gray;
+    }
+
+    &.active {
+      &:before {
+        content: "";
+        position: absolute;
+        background-color: $red;
+        top: -2px;
+        right: -3px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__user {
+    margin-left: 30px;
+
+    & svg {
+      fill: $gray;
+    }
+
+    & span {
+      font-size: 14px;
+      font-weight: 400;
+      margin-left: 5px;
+    }
+  }
+}

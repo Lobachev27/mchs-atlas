@@ -1,0 +1,65 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.pagination {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  &__prev,
+  &__next {
+    fill: $gray;
+    margin-top: 3px;
+    opacity: 0.7;
+    transition: fill 0.3s, opacity 0.3s;
+
+    &:hover {
+      fill: $blue;
+      opacity: 1;
+      transition: fill 0.3s, opacity 0.3s;
+      cursor: pointer;
+    }
+  }
+
+  &__prev {
+    margin-right: 15px;
+  }
+
+  &__next {
+    margin-right: 25px;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+
+    & span {
+      &:first-child {
+        color: $blue;
+      }
+
+      &:last-child {
+        color: $gray;
+      }
+    }
+
+    & .select.select-simple {
+      & .select-main {
+        padding: 0 5px;
+
+        &:after {
+          display: none;
+        }
+      }
+
+      & .select-copy {
+        min-width: 80px;
+      }
+
+      & .select-wrap {
+        min-width: 80px;
+      }
+    }
+  }
+}

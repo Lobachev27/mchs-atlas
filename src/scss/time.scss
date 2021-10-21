@@ -1,0 +1,128 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.input {
+  &.input-time {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 30px 0 10px;
+    cursor: pointer;
+
+    & span {
+      &.input-placeholder {
+        color: $gray;
+      }
+    }
+
+    &.active {
+      & + .time__wrap {
+        box-shadow: 0 6px 18px rgba(26,41,52, 0.3);
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+        transition: opacity 0.3s;
+
+        & + .input-close {
+          visibility: visible;
+          opacity: 1;
+          pointer-events: auto;
+          transition: opacity 0.3s;
+        }
+      }
+    }
+  }
+}
+
+.filter {
+  & .input__box {
+    & .input-close {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 2;
+      pointer-events: none;
+      visibility: hidden;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+}
+
+.time {
+  &__wrap {
+    position: absolute;
+    width: 100%;
+    top: 35px;
+    background-color: $white;
+    pointer-events: none;
+    visibility: hidden;
+    overflow: hidden;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    height: 45px;
+    background-color: $gray-blue-light;
+    padding: 0 10px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin: 20px auto;
+
+    &:last-child {
+      margin-bottom: 30px;
+    }
+
+    & .time__text {
+      min-width: 16px;
+      margin-right: 7px;
+
+      &:first-child {
+        min-width: 8px;
+      }
+    }
+
+    & .input {
+      flex: 1 1 55px;
+      margin-right: 7px;
+    }
+
+    & svg {
+      &.icon-delete{
+        stroke: $gray;
+        margin: 0 1px 0 2px;
+        transition: stroke 0.3s;
+
+        &:hover {
+          stroke: $blue;
+          transition: stroke 0.3s;
+          cursor: pointer;
+        }
+      }
+      &.icon-plus{
+        fill: $gray;
+        transition: fill 0.3s;
+
+        &:hover {
+          fill: $blue;
+          transition: fill 0.3s;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

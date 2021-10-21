@@ -1,0 +1,37 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.view {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+  width: 65px;
+
+  &__item {
+    width: 15px;
+    height: 15px;
+
+    & svg {
+      fill: $gray;
+      opacity: 0.7;
+      transition: fill 0.3s, opacity 0.3s;
+
+      &:hover {
+        fill: $blue;
+        opacity: 1;
+        transition: fill 0.3s, opacity 0.3s;
+        cursor: pointer;
+      }
+    }
+
+    &.active {
+      & svg {
+        background-color: $border-dark;
+        opacity: 1;
+        transition: fill 0.3s, opacity 0.3s;
+      }
+    }
+  }
+}

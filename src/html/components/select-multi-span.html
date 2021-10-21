@@ -1,0 +1,22 @@
+<div class="select select-multi-span @@context.disabled">
+  <input class="input" type="text" placeholder="@@context.placeholder">
+  <div class="select-wrap">
+    <ul class="select-list">
+      @@for (var i = 0; i < context.arr.length; i++) {
+      <li class="select-item">
+        <span>`+context.arr[i]+`</span>
+      </li>
+      }
+    </ul>
+  </div>
+  <ul class="select-selected-list">
+    @@for (var j = 0; j < context.arrSelected.length; j++) {
+    <li class="select-selected-item">
+      <span>`+context.arrSelected[j]+`</span>
+      <svg class="select-item-delete" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10px">
+        <path fill-rule="evenodd" d="M10.010,9.280 L9.280,10.010 L5.000,5.730 L0.720,10.010 L-0.010,9.280 L4.270,5.000 L-0.010,0.720 L0.720,-0.010 L5.000,4.270 L9.280,-0.010 L10.010,0.720 L5.730,5.000 L10.010,9.280 Z"/>
+      </svg>
+    </li>
+    }
+  </ul>
+</div>

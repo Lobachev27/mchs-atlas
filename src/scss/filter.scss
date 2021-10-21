@@ -1,0 +1,130 @@
+@import "partials/params";
+@import "partials/mixins";
+
+.filter {
+  position: relative;
+  z-index: 3;
+
+  &__top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 41px;
+    background-color: $white;
+    padding: 0 20px;
+    z-index: 2;
+  }
+
+  &__icon {
+    margin-right: 15px;
+    & svg {
+      fill: $blue;
+      transition: fill 0.3s;
+      cursor: pointer;
+      margin-right: 7px;
+    }
+
+    &.active {
+      & svg {
+        fill: $blue-dark-2;
+        transition: fill 0.3s;
+      }
+    }
+  }
+
+  &__box {
+    position: relative;
+    margin-right: 15px;
+
+    & .select.select-simple {
+      & .select-main {
+        padding-left: 0;
+      }
+    }
+
+    & .btn {
+      padding-left: 0;
+    }
+  }
+
+  &__form {
+    position: relative;
+    background-color: $gray-blue-dark;
+    border-top: 1px solid transparent;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    max-height: 0;
+
+    &.active {
+      border-top: 1px solid $border-dark;
+      max-height: 300px;
+      opacity: 1;
+      overflow: visible;
+      transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+
+      & .filter__list {
+        max-height: 250px;
+        opacity: 1;
+        overflow: visible;
+        transition: max-height 0.5s ease-in, opacity 0.5s ease-in, padding 0.5s ease-in;
+        padding: 20px;
+      }
+
+      & .filter__btn {
+        padding: 20px;
+        max-height: 70px;
+        opacity: 1;
+        overflow: visible;
+        transition: max-height 0.5s ease-in, opacity 0.5s ease-in, padding 0.5s ease-in;
+      }
+    }
+  }
+
+  &__list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(213px, 1fr));
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+    max-height: 0;
+    padding: 0 20px;
+
+    & .input__box {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+    max-height: 0;
+    padding: 0 20px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: calc(100% - 40px);
+      height: 1px;
+      background-color: $border-dark;
+      top: 0;
+      left: 20px;
+    }
+
+    & .btn {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

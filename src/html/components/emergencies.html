@@ -1,0 +1,21 @@
+<div class="emergencies">
+  <ul class="emergencies__list">
+    @@for (var i = 0; i < arr.length; i++) {
+    <li class="emergencies__item">
+      <div class="emergencies__item-name">`+arr[i].name+`</div>
+      <div class="emergencies__item-description">`+arr[i].description+`</div>
+      <div class="emergencies__item-bottom">
+        <div class="emergencies__item-count `+arr[i].countClass+`">`+arr[i].countValue+`</div>
+        <div class="emergencies__item-change `+arr[i].changeClass+`">
+          <span class="emergencies__item-percent">`+arr[i].percent+`</span>
+          <span class="emergencies__item-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8px" height="8px">
+                <path fill-rule="evenodd" d="M0.134,5.835 L0.126,5.847 L5.000,1.000 L0.756,1.010 C0.620,1.010 0.492,0.955 0.395,0.859 C0.299,0.763 0.245,0.635 0.245,0.499 L0.245,0.506 C0.245,0.371 0.298,0.244 0.394,0.148 C0.490,0.051 0.618,-0.002 0.753,-0.002 L6.492,-0.002 C6.628,-0.002 6.849,-0.042 6.945,0.054 C7.042,0.151 7.002,0.372 7.002,0.508 L7.002,6.247 C7.001,6.382 6.949,6.510 6.852,6.606 C6.756,6.702 6.629,6.755 6.494,6.755 L6.501,6.755 C6.366,6.755 6.238,6.702 6.142,6.606 C6.046,6.510 5.998,6.387 5.998,6.252 L6.000,2.000 L1.158,6.868 C0.960,7.066 0.622,7.062 0.424,6.864 L0.120,6.560 C-0.078,6.362 -0.064,6.033 0.134,5.835 Z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </li>
+    }
+  </ul>
+</div>
